@@ -45,15 +45,15 @@
           <input type="text" name="_honey" class="sr-only" tabindex="-1" autocomplete="off">
           <div>
             <label for="name">Your Name</label>
-            <input id="name" type="text" name="name" placeholder="Your Name" required>
+            <input id="name" type="text" name="name" autocomplete="name" placeholder="Your Name" required>
           </div>
           <div>
             <label for="email">Your Email</label>
-            <input id="email" type="email" name="email" placeholder="you@example.com" required>
+            <input id="email" type="email" name="email" autocomplete="email" placeholder="you@example.com" required>
           </div>
           <div>
             <label for="message">Your Message</label>
-            <textarea id="message" name="message" placeholder="Write your message..." required></textarea>
+            <textarea id="message" name="message" autocomplete="off" placeholder="Write your message..." required></textarea>
           </div>
           <button type="submit" class="btn">Send Message</button>
           <p id="form-status" class="form-status" role="status" aria-live="polite"></p>

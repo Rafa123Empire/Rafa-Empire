@@ -20,16 +20,32 @@ function submitForm(event) {
     }
   })
     .then(function (response) {
-      if (!response.ok) {
-        throw new Error("Request failed");
-      }
+      return response.json().then(function (data) {
+        if (!response.ok || data.success !== "true") {
+          const errorMessage = data.message || "Request failed";
+          throw new Error(errorMessage);
+        }
 
-      status.textContent = "Thank you. Your message was sent successfully.";
-      status.classList.add("success");
-      form.reset();
+        status.textContent = "Thank you. Your message was sent successfully.";
+        status.classList.add("success");
+        form.reset();
+      }).catch(function () {
+        if (!response.ok) {
+          throw new Error("Request failed");
+        }
+
+        status.textContent = "Thank you. Your message was sent successfully.";
+        status.classList.add("success");
+        form.reset();
+      });
     })
-    .catch(function () {
-      status.textContent = "Message failed to send. Please call or email us directly.";
+    .catch(function (error) {
+      const apiMessage = error && error.message ? error.message : "";
+      if (apiMessage && apiMessage !== "Request failed") {
+        status.textContent = "Message failed: " + apiMessage;
+      } else {
+        status.textContent = "Message failed to send. Please call or email us directly.";
+      }
       status.classList.add("error");
     })
     .finally(function () {
