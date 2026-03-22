@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rafa123empire.github.io/Rafa-Empire/sitemap.xml
