@@ -127,8 +127,58 @@ main {
 .hero-panel {
   padding: clamp(1.7rem, 3vw, 3rem);
   display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
+  align-items: center;
   gap: 1.2rem;
   animation: rise-in 0.55s ease forwards;
+}
+
+.hero-copy {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.hero-visual {
+  position: relative;
+}
+
+.hero-visual img,
+.showcase-card img,
+.story-panel img,
+.photo-band img,
+.service-media-grid img,
+.mini-gallery-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-visual img {
+  min-height: 360px;
+  border-radius: 22px;
+  box-shadow: 0 18px 38px rgba(23, 75, 48, 0.2);
+}
+
+.hero-badge {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  max-width: 250px;
+  display: grid;
+  gap: 0.25rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(23, 75, 48, 0.12);
+  border-radius: 18px;
+  padding: 0.9rem 1rem;
+  backdrop-filter: blur(8px);
+}
+
+.hero-badge strong {
+  color: var(--green-950);
+}
+
+.hero-badge span {
+  font-size: 0.92rem;
 }
 
 .eyebrow {
@@ -217,6 +267,34 @@ h1 {
   margin-bottom: 0.45rem;
 }
 
+.showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.showcase-card,
+.mini-gallery-card {
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(23, 75, 48, 0.12);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+}
+
+.showcase-card img {
+  aspect-ratio: 4 / 3;
+}
+
+.showcase-copy {
+  padding: 1rem;
+}
+
+.showcase-copy h3 {
+  color: var(--green-900);
+  margin-bottom: 0.35rem;
+}
+
 .page-wrap {
   display: grid;
   gap: 1.35rem;
@@ -242,6 +320,31 @@ h1 {
   color: var(--green-900);
 }
 
+.story-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 420px);
+  gap: 1rem;
+  align-items: center;
+}
+
+.story-panel img {
+  border-radius: 18px;
+  min-height: 280px;
+  box-shadow: 0 14px 32px rgba(23, 75, 48, 0.16);
+}
+
+.photo-band {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 1rem;
+}
+
+.photo-band img {
+  min-height: 240px;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
 .clean-list {
   list-style: none;
   margin-top: 0.75rem;
@@ -254,6 +357,36 @@ h1 {
   border: 1px solid rgba(30, 106, 66, 0.18);
   border-radius: 12px;
   padding: 0.65rem 0.8rem;
+}
+
+.service-media-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 360px);
+  gap: 1rem;
+  align-items: start;
+}
+
+.service-media-grid img {
+  min-height: 250px;
+  border-radius: 18px;
+  box-shadow: 0 14px 28px rgba(23, 75, 48, 0.16);
+}
+
+.service-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.mini-gallery-card img {
+  aspect-ratio: 4 / 3;
+}
+
+.mini-gallery-card p {
+  padding: 0.8rem 0.9rem 0.95rem;
+  font-weight: 600;
+  color: var(--green-900);
 }
 
 .contact-layout {
@@ -326,6 +459,16 @@ h1 {
   padding: 1rem;
 }
 
+.contact-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 4 / 3;
+  border-radius: 14px;
+  margin-bottom: 1rem;
+  object-fit: cover;
+}
+
 .contact-info h3 {
   font-size: 1.1rem;
   margin-bottom: 0.65rem;
@@ -333,6 +476,41 @@ h1 {
 
 .contact-info p + p {
   margin-top: 0.4rem;
+}
+
+.contact-banner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: center;
+  padding: 1.35rem 1.5rem;
+  background: linear-gradient(135deg, rgba(23, 75, 48, 0.97), rgba(42, 132, 82, 0.94));
+  color: var(--white);
+  border-radius: 24px;
+  box-shadow: 0 18px 40px rgba(23, 75, 48, 0.22);
+}
+
+.contact-banner h2 {
+  max-width: 18ch;
+  font-size: clamp(1.55rem, 3vw, 2.2rem);
+}
+
+.contact-banner .eyebrow {
+  background: rgba(255, 255, 255, 0.14);
+  color: #ecfff1;
+  margin-bottom: 0.75rem;
+}
+
+.contact-banner-details {
+  display: grid;
+  gap: 0.65rem;
+  justify-items: start;
+}
+
+.contact-banner-details a:not(.btn) {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--white);
 }
 
 .site-footer {
@@ -362,8 +540,19 @@ h1 {
 
 @media (max-width: 900px) {
   .feature-grid,
-  .contact-layout {
+  .contact-layout,
+  .showcase-grid,
+  .service-gallery,
+  .hero-panel,
+  .story-panel,
+  .photo-band,
+  .service-media-grid,
+  .contact-banner {
     grid-template-columns: 1fr;
+  }
+
+  .hero-visual img {
+    min-height: 280px;
   }
 }
 
